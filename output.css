@@ -20,7 +20,7 @@
 }
 
 .wrapper {
-  max-width: 600px;
+  max-width: 650px;
   display: flex;
   border-radius: 20px;
   box-shadow: 5px 20px 20px hsla(241, 100%, 89%, 0.3);
@@ -29,9 +29,6 @@
 .left-row {
   padding: 30px;
   border-radius: 20px;
-}
-
-.left-row {
   background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
   flex: 1 1 0px;
 }
@@ -86,8 +83,11 @@
   margin: 30px 0px 20px 0px;
   font-weight: 700;
 }
+.right-row .score {
+  color: hsl(224, 30%, 27%);
+}
 .right-row .blury-score {
-  color: gray;
+  color: hsla(224, 30%, 27%, 0.4);
 }
 .right-row .reaction-wrapper {
   background-color: hsla(0, 100%, 67%, 0.1);
@@ -110,15 +110,19 @@
   margin: 12px 0px;
 }
 .right-row .reaction-title {
+  font-weight: 600;
   color: hsl(0, 100%, 67%);
 }
 .right-row .verbal-title {
+  font-weight: 600;
   color: hsl(166, 100%, 37%);
 }
 .right-row .memory-title {
+  font-weight: 600;
   color: hsl(39, 100%, 56%);
 }
 .right-row .visual-title {
+  font-weight: 600;
   color: hsl(234, 85%, 45%);
 }
 
