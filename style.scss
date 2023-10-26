@@ -4,9 +4,13 @@ $font-stack: 'Hanken+Grotesk', sans-serif;
 //Main
 
 $light-red: hsl(0, 100%, 67%);
+$lighter-red: hsla(0, 100%, 67%, 0.1);
 $orangey-yellow: hsl(39, 100%, 56%);
+$lighter-orangey-yellow: hsla(39, 100%, 56%, 0.1);
 $green-teal: hsl(166, 100%, 37%);
+$lighter-green-teal: hsla(166, 100%, 37%, 0.1);
 $cobalt-blue: hsl(234, 85%, 45%);
+$lighter-cobalt-blue: hsla(234, 85%, 45%, 0.1);
 
 // ## Gradients
 
@@ -23,12 +27,204 @@ $pale-blue: hsl(221, 100%, 96%);
 $light-lavender: hsl(241, 100%, 89%);
 $dark-gray-blue: hsl(224, 30%, 27%);
 
-*{
+@mixin flexEquals() {
+  flex: 1 1 0px;
+}
+
+@mixin itemColors($color: $lighter-red) {
+  background-color: $color;
+  border-radius: 10px;
+  margin: 12px 0px;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: $font-stack;
+  font-size: 18px;
 }
 
-body{
-  
+.text-center {
+  text-align: center !important;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 600px;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 5px 20px 20px hsla(241, 100%, 89%, 0.3);
+}
+
+.left-row {
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.left-row {
+  background-image: linear-gradient($light-slate-blue, $light-royal-blue);
+  @include flexEquals();
+
+  .result-title,
+  .small-total,
+  .description {
+    padding: 30px 0;
+    color: $light-lavender;
+  }
+
+  .big-number,
+  .result {
+    color: $pale-blue;
+  }
+
+  .result {
+    font-size: 25px;
+  }
+
+  .circle {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 160px;
+    height: 160px;
+    background-image: linear-gradient($violet-blue, $persian-blue);
+    border-radius: 50%;
+  }
+
+  .big-number {
+    font-size: 55px;
+    padding: 30px 30px 0;
+    font-weight: 800;
+  }
+
+  .small-total {
+    padding: unset;
+    font-size: 0.75em;
+  }
+}
+
+.right-row {
+  @include flexEquals();
+  padding: 0 30px;
+
+  @media (min-width: 765px) {
+
+    .reaction-wrapper,
+    .memory-wrapper,
+    .verbal-wrapper,
+    .visual-wrapper {
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .summary-title {
+    color: $dark-gray-blue;
+    margin: 30px 0px 20px 0px;
+    font-weight: 700;
+  }
+
+  .blury-score {
+    color: gray
+  }
+
+  .reaction-wrapper {
+    @include itemColors()
+  }
+
+  .memory-wrapper {
+    @include itemColors($color: $lighter-orangey-yellow)
+  }
+
+  .verbal-wrapper {
+    @include itemColors($color: $lighter-green-teal)
+  }
+
+  .visual-wrapper {
+    @include itemColors($color: $lighter-cobalt-blue)
+  }
+
+  .reaction-title {
+    color: $light-red;
+  }
+
+  .verbal-title {
+    color: $green-teal;
+  }
+
+  .memory-title {
+    color: $orangey-yellow;
+  }
+
+  .visual-title {
+    color: $cobalt-blue;
+  }
+}
+
+.continue-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  color: $white;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 20px;
+  outline: none !important;
+  background-color: $dark-gray-blue;
+  background-image: none;
+}
+
+.continue-button:hover {
+  background-image: linear-gradient($light-slate-blue, $light-royal-blue);
+}
+
+// Responsive
+@media (max-width: 450px) {
+  .wrapper {
+    display: block;
+  }
+
+  .reaction-wrapper,
+  .memory-wrapper,
+  .verbal-wrapper,
+  .visual-wrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .continue-button {
+    padding: 16px;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+  }
+
+  .main{
+    display: block;
+  }
+
+  .left-row{
+    border-radius: 0 0 40px 40px;
+    padding: 20px;
+  }
+
+  .left-row .circle{
+    width: 120px;
+    height: 120px;
+  }
+
+  .left-row .big-number{
+    font-size: 40px;
+    padding: 20px 30px 0;
+  }
 }
